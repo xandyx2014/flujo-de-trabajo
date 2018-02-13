@@ -1,0 +1,57 @@
+.menu,
+[class*="menu--"] {
+  list-style: none;
+  margin-top : 0;
+  margin-bottom : 2em;
+  padding-left : 0;
+  text-align : center;
+
+  @include from(large) {
+    display : flex;
+    justify-content: space-around;
+  }
+}
+
+.menu__link {
+  text-decoration : none;
+  font-weight : $semibold;
+  color: $primary;
+
+  &.active {
+    color: $accent;
+  }
+
+  @include from(large) {
+    display : block;
+    line-height : 3;
+  }
+}
+
+.menu--main {
+  border-top: 1px solid #95989A;
+  border-bottom: 1px solid #95989A;
+}
+
+.menu--section {
+  @include from(large) {
+    width : 60%;
+    margin-left : auto;
+    margin-right : auto;
+  }
+
+  .active {
+    &::after {
+      content: "";
+      display : block;
+      width : 50%;
+      margin-left : 25%;
+      height : 2px;
+      background : $accent;
+
+      @include from(large) {
+        width : 140%;
+        margin-left : -20%;
+      }
+    }
+  }
+}

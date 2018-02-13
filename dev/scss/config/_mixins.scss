@@ -1,0 +1,28 @@
+@mixin var($property,$var) {
+  #{$property}: map-get($vars,$var);
+  #{$property}: var(--#{$var})
+}
+
+@mixin from($breakpoint) {
+  @media screen and (min-width: map-get($breakpoints,$breakpoint)) {
+    @content;
+  }
+}
+
+
+@mixin font($size) {
+  font-size: nth(map-get($fonts,$size),1);
+  line-height: nth(map-get($fonts,$size),2);
+}
+
+@mixin button ($type){
+  @if $type == primary {
+    background: $accent;
+    color: #fff;
+  } @else if $type == secondary{
+    background: $secondary;
+    color: $primary;
+  }
+  line-height : 3;
+  border : 1px solid $primary;
+}
